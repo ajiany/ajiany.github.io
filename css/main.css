@@ -1160,7 +1160,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #c33279;
+  background: #fbb005;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1485,10 +1485,7 @@ pre .javascript .function {
   position: fixed;
   transition-property: bottom;
   z-index: 1300;
-  width: 24px;
-}
-.back-to-top span {
-  display: none;
+  width: initial;
 }
 .back-to-top:hover {
   color: #87daff;
@@ -2011,6 +2008,7 @@ pre .javascript .function {
 }
 .category-all-page .category-list-item {
   margin: 5px 10px;
+  text-align: center;
 }
 .category-all-page .category-list-count {
   color: #bbb;

@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>first_article</title>
+      <link href="/2020/05/11/first-article/"/>
+      <url>/2020/05/11/first-article/</url>
+      
+        <content type="html"><![CDATA[<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>这是我的测试文章<a href="http://www.ajiany.com" target="_blank" rel="noopener">Blog</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 碎碎念 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 分享 </tag>
+            
+            <tag> first </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2020/05/08/hello-world/"/>
       <url>/2020/05/08/hello-world/</url>

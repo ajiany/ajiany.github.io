@@ -9,8 +9,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>选择的方向优胜于谋略的策略，方法比努力更有价值</description>
-    <pubDate>Sat, 09 May 2020 12:14:36 GMT</pubDate>
+    <pubDate>Mon, 11 May 2020 14:20:40 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>first_article</title>
+      <link>http://yoursite.com/2020/05/11/first-article/</link>
+      <guid>http://yoursite.com/2020/05/11/first-article/</guid>
+      <pubDate>Mon, 11 May 2020 13:08:31 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;h2 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h2&gt;&lt;p&gt;这是我的测试文章&lt;a href=&quot;http://www.ajiany.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>这是我的测试文章<a href="http://www.ajiany.com" target="_blank" rel="noopener">Blog</a></p>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2020/05/11/first-article/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Hello World</title>
