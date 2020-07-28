@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/panda_32px.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/panda_16px.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="二叉排序树介绍对于二叉排序树的任何一个非叶子节点，要求左子节点的值比当前节点的值小，且右节点的值比当前节点的大。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构-二叉排序树">
+<meta property="og:url" content="http://yoursite.com/2020/07/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91/index.html">
+<meta property="og:site_name" content="我是ajian">
+<meta property="og:description" content="二叉排序树介绍对于二叉排序树的任何一个非叶子节点，要求左子节点的值比当前节点的值小，且右节点的值比当前节点的大。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-28T09:13:01.000Z">
+<meta property="article:modified_time" content="2020-07-28T09:22:23.206Z">
+<meta property="article:author" content="ajian">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="二叉排序树">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/07/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>数据结构-二叉排序树 | 我是ajian</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="我是ajian" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+	<!-- folk me on github -->
+	<a href="https://github.com/ajiany" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+	
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">我是ajian</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="ajian">
+      <meta itemprop="description" content="选择的方向优胜于谋略的策略，方法比努力更有价值">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我是ajian">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据结构-二叉排序树
+        </h1>
+
+        <div class="post-meta">
+		  
+		  
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-28 17:13:01 / 修改时间：17:22:23" itemprop="dateCreated datePublished" datetime="2020-07-28T17:13:01+08:00">2020-07-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                </span>
+            </span>
+
+          
+			<span>&emsp;</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="busuanzi_value_page_pv"></span>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>6.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="二叉排序树介绍"><a href="#二叉排序树介绍" class="headerlink" title="二叉排序树介绍"></a>二叉排序树介绍</h3><p>对于二叉排序树的任何一个非叶子节点，要求左子节点的值比当前节点的值小，且右节点的值比当前节点的大。</p>
+<a id="more"></a>
+
+<h3 id="案例说明"><a href="#案例说明" class="headerlink" title="案例说明"></a>案例说明</h3><p>功能实现： </p>
+<ul>
+<li>完成二叉排序树的建立</li>
+<li>对二叉排序树的节点进行删除</li>
+</ul>
+<p>对二叉排序树的节点进行删除的步骤分析：</p>
+<h4 id="情况一，删除叶子节点"><a href="#情况一，删除叶子节点" class="headerlink" title="情况一，删除叶子节点"></a>情况一，删除叶子节点</h4><ol>
+<li>找到待删除的节点的位置；</li>
+<li>找到待删除的节点的父节点的位置；</li>
+<li>判断待删除节点位于父节点的左指针还是右指针指向的方向，然后将父节点指针指向的待删除节点的指针置为null，即删除成功；</li>
+</ol>
+<h4 id="情况二，删除非叶子节点，且该非叶子节点有一个子节点"><a href="#情况二，删除非叶子节点，且该非叶子节点有一个子节点" class="headerlink" title="情况二，删除非叶子节点，且该非叶子节点有一个子节点"></a>情况二，删除非叶子节点，且该非叶子节点有一个子节点</h4><ol>
+<li>找到待删除的节点的位置；</li>
+<li>找到待删除的节点的父节点的位置；</li>
+<li>判断待删除节点位于父节点的左节点位置还是右节点位置：<ul>
+<li>若待删除节点位于父节点的左节点位置：<ul>
+<li>若待删除节点的子节点位于左节点位置：parent.leftNode=this.leftNode;</li>
+<li>若待删除节点的子节点位于右节点位置：parent.leftNode=this.rightNode;</li>
+</ul>
+</li>
+<li>若待删除节点位于父节点的右节点位置：<ul>
+<li>若待删除节点的子节点位于左节点位置：parent.rightNode=this.leftNode;</li>
+<li>若待删除节点的子节点位于右节点位置：parent.rightNode=this.rightNode;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="情况三，删除非叶子节点，且该非叶子节点有俩个子节点"><a href="#情况三，删除非叶子节点，且该非叶子节点有俩个子节点" class="headerlink" title="情况三，删除非叶子节点，且该非叶子节点有俩个子节点"></a>情况三，删除非叶子节点，且该非叶子节点有俩个子节点</h4><ol>
+<li>找到待删除的节点的位置；</li>
+<li>找到待删除的节点的父节点的位置；</li>
+<li>在待删除节点的右子树中找到最小的值，将其赋值给待删除节点，然后将该最小值删除；</li>
+<li>或者在待删除节点的左子树中找到最大的值，将其赋值给待删除节点，然后将该最大值删除；</li>
+</ol>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@author</span> ajiany</span></span><br><span class="line"><span class="comment">* <span class="doctag">@date</span> 2020/7/12</span></span><br><span class="line"><span class="comment">* 功能：1.二叉排序树的建立及节点的添加</span></span><br><span class="line"><span class="comment">*      2.二叉排序树节点的删除</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">package</span> tree.binarysorttree;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BinarySortTreeDemo</span> </span>&#123;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">           <span class="keyword">int</span>[] array = &#123; <span class="number">7</span>, <span class="number">3</span>, <span class="number">10</span>, <span class="number">12</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">9</span>, <span class="number">2</span> &#125;;</span><br><span class="line">           BinarySortTree tree = <span class="keyword">new</span> BinarySortTree();</span><br><span class="line">           <span class="comment">// 添加节点</span></span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">                tree.binarySortTreeAddNode(<span class="keyword">new</span>  TreeNode(array[i]));</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="comment">// 中序遍历</span></span><br><span class="line">           System.out.println(<span class="string">"删除前-----------------------------"</span>);</span><br><span class="line">           tree.binarySortTreeInfixOrder();</span><br><span class="line">           tree.binarySortTreeDeleteNode(<span class="number">1</span>);</span><br><span class="line">           tree.binarySortTreeDeleteNode(<span class="number">9</span>);</span><br><span class="line">           tree.binarySortTreeDeleteNode(<span class="number">5</span>);</span><br><span class="line">           tree.binarySortTreeDeleteNode(<span class="number">3</span>);</span><br><span class="line">           tree.binarySortTreeDeleteNode(<span class="number">12</span>);</span><br><span class="line">           tree.binarySortTreeDeleteNode(<span class="number">10</span>);</span><br><span class="line">           tree.binarySortTreeDeleteNode(<span class="number">7</span>);</span><br><span class="line">           tree.binarySortTreeDeleteNode(<span class="number">2</span>);</span><br><span class="line">           System.out.println(<span class="string">"删除后-----------------------------"</span>);</span><br><span class="line">           tree.binarySortTreeInfixOrder();</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BinarySortTree</span> </span>&#123;</span><br><span class="line">     TreeNode root;</span><br><span class="line">     <span class="comment">// 添加节点</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">binarySortTreeAddNode</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">           <span class="keyword">if</span> (root != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="comment">// 不为null则调用添加方法</span></span><br><span class="line">                root.addNode(node);</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 若root等于null则将当前要添加的节点赋值给root</span></span><br><span class="line">                root = node;</span><br><span class="line">           &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="comment">// 中序遍历</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">binarySortTreeInfixOrder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">           <span class="keyword">if</span> (root != <span class="keyword">null</span>) &#123;</span><br><span class="line">                root.infixOrder();</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                System.out.println(<span class="string">"无法遍历,数为空"</span>);</span><br><span class="line">           &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="comment">// 删除节点</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">binarySortTreeDeleteNode</span><span class="params">(<span class="keyword">int</span> no)</span> </span>&#123;</span><br><span class="line">           <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(root.getLeftNode()==<span class="keyword">null</span>&amp;&amp;root.getRightNode()==<span class="keyword">null</span>) &#123;</span><br><span class="line">                     root=<span class="keyword">null</span>;</span><br><span class="line">                     <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 获得要删除的节点</span></span><br><span class="line">                TreeNode dlNode = root.searchNode(no);</span><br><span class="line">                <span class="comment">// 获得待删除节点的父节点</span></span><br><span class="line">                TreeNode dlParentNode =  root.searchParentNode(no);</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> (dlNode != <span class="keyword">null</span>) &#123;</span><br><span class="line">                     <span class="keyword">if</span> (dlNode.getLeftNode() == <span class="keyword">null</span> &amp;&amp;  dlNode.getRightNode() == <span class="keyword">null</span>) &#123;<span class="comment">// 待删除节点为叶子节点</span></span><br><span class="line">                           <span class="comment">// 判断待删除节点位于父节点的左右位置</span></span><br><span class="line">                           <span class="keyword">if</span> (dlParentNode.getLeftNode() !=  <span class="keyword">null</span> &amp;&amp; dlParentNode.getLeftNode().getNo() == no) &#123;<span class="comment">// 待删除节点位于父节点的左子树位置</span></span><br><span class="line">                                dlParentNode.setLeftNode(<span class="keyword">null</span>);</span><br><span class="line">                           &#125; <span class="keyword">else</span> <span class="keyword">if</span>  (dlParentNode.getRightNode() != <span class="keyword">null</span> &amp;&amp;  dlParentNode.getRightNode().getNo() == no) &#123;<span class="comment">// 待删除节点位于父节点的右子树位置</span></span><br><span class="line">                                dlParentNode.setRightNode(<span class="keyword">null</span>);</span><br><span class="line">                           &#125;</span><br><span class="line">                     &#125; <span class="keyword">else</span> <span class="keyword">if</span> (dlNode.getLeftNode() != <span class="keyword">null</span> &amp;&amp;  dlNode.getRightNode() != <span class="keyword">null</span>) &#123;<span class="comment">// 待删除节点有左右子树</span></span><br><span class="line">                           <span class="keyword">int</span> minVal =  dlNode.findMinValueInRightTree(dlNode.getRightNode());</span><br><span class="line">                           binarySortTreeDeleteNode(minVal);</span><br><span class="line">                           dlNode.setNo(minVal);</span><br><span class="line">                     &#125; <span class="keyword">else</span> &#123;<span class="comment">// 待删除节点只有一棵子树</span></span><br><span class="line">                           <span class="keyword">if</span> (dlNode.getLeftNode() != <span class="keyword">null</span>) &#123;<span class="comment">//  若待删除右节点不为null,说明待删除节点的子树在左边</span></span><br><span class="line">                                <span class="keyword">if</span> (dlParentNode != <span class="keyword">null</span>) &#123;<span class="comment">// 判断父节点是否为null</span></span><br><span class="line">                                     <span class="keyword">if</span>  (dlParentNode.getLeftNode().equals(dlNode)) &#123;<span class="comment">// 若待删除节点为父节点的左节点</span></span><br><span class="line">                                           <span class="comment">// 将待删除节点的父节点的左指针指向待删除节点的左子树</span></span><br><span class="line">                                           dlParentNode.setLeftNode(dlNode.getLeftNode());</span><br><span class="line">                                     &#125; <span class="keyword">else</span> <span class="keyword">if</span>  (dlParentNode.getRightNode().equals(dlNode)) &#123;<span class="comment">// 若待删除节点为父节点的右节点</span></span><br><span class="line">                                           <span class="comment">// 将待删除节点的父节点的右指针指向待删除节点的左子树</span></span><br><span class="line">                                           dlParentNode.setRightNode(dlNode.getLeftNode());</span><br><span class="line">                                     &#125;</span><br><span class="line">                                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                                     root =  dlNode.getLeftNode();</span><br><span class="line">                                &#125;</span><br><span class="line">                           &#125; <span class="keyword">else</span> <span class="keyword">if</span> (dlNode.getRightNode() !=  <span class="keyword">null</span>) &#123;<span class="comment">// 若待删除右节点不为null,说明待删除节点的子树在右边</span></span><br><span class="line">                                <span class="keyword">if</span> (dlParentNode != <span class="keyword">null</span>) &#123;</span><br><span class="line">                                     <span class="keyword">if</span>  (dlParentNode.getLeftNode().equals(dlNode)) &#123;<span class="comment">// 若待删除节点为父节点的左节点</span></span><br><span class="line">                                           dlParentNode.setLeftNode(dlNode.getRightNode());</span><br><span class="line">                                     &#125; <span class="keyword">else</span> <span class="keyword">if</span>  (dlParentNode.getRightNode().equals(dlNode)) &#123;<span class="comment">// 若待删除节点为父节点的右节点</span></span><br><span class="line">                                           dlParentNode.setRightNode(dlNode.getRightNode());</span><br><span class="line">                                     &#125;</span><br><span class="line">                                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                                     root =  dlNode.getRightNode();</span><br><span class="line">                                &#125;</span><br><span class="line">                           &#125;</span><br><span class="line">                     &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                     System.out.println(<span class="string">"无该节点"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">           &#125;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">int</span> no;</span><br><span class="line">     <span class="keyword">private</span> TreeNode leftNode;</span><br><span class="line">     <span class="keyword">private</span> TreeNode rightNode;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="title">TreeNode</span><span class="params">(<span class="keyword">int</span> no)</span> </span>&#123;</span><br><span class="line">           <span class="keyword">this</span>.no = no;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getNo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">           <span class="keyword">return</span> no;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNo</span><span class="params">(<span class="keyword">int</span> no)</span> </span>&#123;</span><br><span class="line">           <span class="keyword">this</span>.no = no;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> TreeNode <span class="title">getLeftNode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">           <span class="keyword">return</span> leftNode;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLeftNode</span><span class="params">(TreeNode leftNode)</span> </span>&#123;</span><br><span class="line">           <span class="keyword">this</span>.leftNode = leftNode;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> TreeNode <span class="title">getRightNode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">           <span class="keyword">return</span> rightNode;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRightNode</span><span class="params">(TreeNode rightNode)</span> </span>&#123;</span><br><span class="line">           <span class="keyword">this</span>.rightNode = rightNode;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="comment">// 重写toString方法</span></span><br><span class="line">     <span class="meta">@Override</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="string">"TreeNode [no="</span> + no + <span class="string">"]"</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="comment">// 添加节点的方法</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addNode</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">           <span class="keyword">if</span> (node.getNo() &lt; <span class="keyword">this</span>.getNo()) &#123;</span><br><span class="line">                <span class="comment">// 左递归</span></span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">this</span>.getLeftNode() != <span class="keyword">null</span>) &#123;</span><br><span class="line">                     <span class="keyword">this</span>.getLeftNode().addNode(node);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                     <span class="comment">// 若左指针为空则添加节点</span></span><br><span class="line">                     <span class="keyword">this</span>.setLeftNode(node);</span><br><span class="line">                &#125;</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 右递归</span></span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">this</span>.getRightNode() != <span class="keyword">null</span>) &#123;</span><br><span class="line">                     <span class="keyword">this</span>.getRightNode().addNode(node);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                     <span class="comment">// 若右指针为空则添加节点</span></span><br><span class="line">                     <span class="keyword">this</span>.setRightNode(node);</span><br><span class="line">                &#125;</span><br><span class="line">           &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="comment">// 中序遍历</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">infixOrder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">           <span class="comment">// 左递归</span></span><br><span class="line">           <span class="keyword">if</span> (<span class="keyword">this</span>.getLeftNode() != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">this</span>.getLeftNode().infixOrder();</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="comment">// 打印当前节点</span></span><br><span class="line">           System.out.println(<span class="keyword">this</span>);</span><br><span class="line">           <span class="comment">// 右递归</span></span><br><span class="line">           <span class="keyword">if</span> (<span class="keyword">this</span>.getRightNode() != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">this</span>.getRightNode().infixOrder();</span><br><span class="line">           &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="comment">// 找到待删除节点</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> TreeNode <span class="title">searchNode</span><span class="params">(<span class="keyword">int</span> no)</span> </span>&#123;</span><br><span class="line">           <span class="keyword">if</span> (<span class="keyword">this</span> != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">this</span>.getNo() == no) &#123;<span class="comment">// 当前节点即为要删除的节点</span></span><br><span class="line">                     <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (no &lt; <span class="keyword">this</span>.getNo()) &#123;<span class="comment">// 往左边查找</span></span><br><span class="line">                     <span class="keyword">return</span> <span class="keyword">this</span>.getLeftNode().searchNode(no);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (no &gt;= <span class="keyword">this</span>.getNo()) &#123;<span class="comment">// 往右边查找</span></span><br><span class="line">                     <span class="keyword">return</span> <span class="keyword">this</span>.getRightNode().searchNode(no);</span><br><span class="line">                &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="comment">// 找到待删除节点的父节点</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> TreeNode <span class="title">searchParentNode</span><span class="params">(<span class="keyword">int</span> no)</span> </span>&#123;</span><br><span class="line">           <span class="keyword">if</span> (<span class="keyword">this</span> != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> ((<span class="keyword">this</span>.getLeftNode() != <span class="keyword">null</span> &amp;&amp;  <span class="keyword">this</span>.getLeftNode().getNo() == no)</span><br><span class="line">                           || (<span class="keyword">this</span>.getRightNode() != <span class="keyword">null</span> &amp;&amp;  <span class="keyword">this</span>.getRightNode().getNo() == no)) &#123;<span class="comment">// 左子节点或者右节点为待删除的值</span></span><br><span class="line">                     <span class="keyword">return</span> <span class="keyword">this</span>;<span class="comment">// 返回父节点</span></span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                     <span class="keyword">if</span> (no &lt; <span class="keyword">this</span>.getNo() &amp;&amp;  <span class="keyword">this</span>.getLeftNode() != <span class="keyword">null</span>) &#123;<span class="comment">// 往左子树继续查找</span></span><br><span class="line">                           <span class="keyword">return</span>  <span class="keyword">this</span>.getLeftNode().searchParentNode(no);</span><br><span class="line">                     &#125; <span class="keyword">else</span> <span class="keyword">if</span> (no &gt;= <span class="keyword">this</span>.getNo() &amp;&amp;  <span class="keyword">this</span>.getRightNode() != <span class="keyword">null</span>) &#123;</span><br><span class="line">                           <span class="keyword">return</span>  <span class="keyword">this</span>.getRightNode().searchParentNode(no);<span class="comment">// 往右子树继续查找</span></span><br><span class="line">                     &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                           <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">                     &#125;</span><br><span class="line">                &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="comment">// 找到右子树中最小的节点</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMinValueInRightTree</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">           <span class="keyword">if</span> (node.getLeftNode() != <span class="keyword">null</span>) &#123;</span><br><span class="line">                findMinValueInRightTree(node.getLeftNode());</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">return</span> node.getNo();</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>ajian
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2020/07/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91/" title="数据结构-二叉排序树">http://yoursite.com/2020/07/28/数据结构-二叉排序树/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <!-- <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 数据结构</a> -->
+			  <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
+              <!-- <a href="/tags/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91/" rel="tag"># 二叉排序树</a> -->
+			  <a href="/tags/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91/" rel="tag"><i class="fa fa-tag"></i> 二叉排序树</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E7%9A%84%E5%BA%94%E7%94%A8-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/" rel="prev" title="赫夫曼编码">
+      <i class="fa fa-chevron-left"></i> 赫夫曼编码
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/07/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-AVL%E6%A0%91/" rel="next" title="数据结构-AVL树">
+      数据结构-AVL树 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉排序树介绍"><span class="nav-number">1.</span> <span class="nav-text">二叉排序树介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#案例说明"><span class="nav-number">2.</span> <span class="nav-text">案例说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#情况一，删除叶子节点"><span class="nav-number">2.1.</span> <span class="nav-text">情况一，删除叶子节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#情况二，删除非叶子节点，且该非叶子节点有一个子节点"><span class="nav-number">2.2.</span> <span class="nav-text">情况二，删除非叶子节点，且该非叶子节点有一个子节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#情况三，删除非叶子节点，且该非叶子节点有俩个子节点"><span class="nav-number">2.3.</span> <span class="nav-text">情况三，删除非叶子节点，且该非叶子节点有俩个子节点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="ajian"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">ajian</p>
+  <div class="site-description" itemprop="description">选择的方向优胜于谋略的策略，方法比努力更有价值</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ajiany" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ajiany" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1641574839@qq.com" title="E-Mail → mailto:1641574839@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://baidu.com/" title="https:&#x2F;&#x2F;baidu.com" rel="noopener" target="_blank">百度</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020-01 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ajian</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">135k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:03</span>
+</div>
+
+<!--底部强力驱动内容 -->
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+-->
+
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script>
+
+<!--
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共38.6k字</span>
+</div>
+-->
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+  </span>
+  <span class="site-uv" title="总访客量">
+    总访客量<span id="busuanzi_value_site_uv"></span>次 
+  </span>
+	
+  <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+  </span>
+  <span class="site-pv" title="总访问量">
+    总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+</div>
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"left","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.5,"opacityOnHover":0.8},"log":false});</script></body>
+</html>
