@@ -22,19 +22,21 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="这位朋友你好呀，我是阿健！欢迎来到我的博客 ajian! 博客记录了我的一些学习笔记和资源分享。 希望我的一些浅薄理解可以帮助到您。">
+  <meta name="description" content="题目描述学校在拍年度纪念照时，一般要求学生按照 非递减 的高度顺序排列。请你返回能让所有学生以 非递减 高度排列的最小必要移动人数。注意，当一组学生被选中时，他们之间可以以任何可能的方式重新排序，而未被选中的学生应该保持不动。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="欢迎来到我的博客">
-<meta property="og:url" content="http://yoursite.com/2020/05/08/hello-world/index.html">
+<meta property="og:title" content="leetCode-no-1051">
+<meta property="og:url" content="http://yoursite.com/2020/07/27/leetCode-no-1051/index.html">
 <meta property="og:site_name" content="我是ajian">
-<meta property="og:description" content="这位朋友你好呀，我是阿健！欢迎来到我的博客 ajian! 博客记录了我的一些学习笔记和资源分享。 希望我的一些浅薄理解可以帮助到您。">
+<meta property="og:description" content="题目描述学校在拍年度纪念照时，一般要求学生按照 非递减 的高度顺序排列。请你返回能让所有学生以 非递减 高度排列的最小必要移动人数。注意，当一组学生被选中时，他们之间可以以任何可能的方式重新排序，而未被选中的学生应该保持不动。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-05-08T11:40:28.615Z">
-<meta property="article:modified_time" content="2020-07-27T15:35:42.006Z">
+<meta property="article:published_time" content="2020-07-27T14:44:20.000Z">
+<meta property="article:modified_time" content="2020-07-30T15:51:16.996Z">
 <meta property="article:author" content="ajian">
+<meta property="article:tag" content="leetcode">
+<meta property="article:tag" content="数组">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/05/08/hello-world/">
+<link rel="canonical" href="http://yoursite.com/2020/07/27/leetCode-no-1051/">
 
 
 <script id="page-configurations">
@@ -47,7 +49,7 @@
   };
 </script>
 
-  <title>欢迎来到我的博客 | 我是ajian</title>
+  <title>leetCode-no-1051 | 我是ajian</title>
   
 
 
@@ -204,7 +206,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/08/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/27/leetCode-no-1051/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -217,15 +219,11 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          欢迎来到我的博客
+          leetCode-no-1051
         </h1>
 
         <div class="post-meta">
 		  
-		  
-			<i class="fa fa-thumb-tack"></i>
-			<font color=7D26CD>置顶</font>
-			<span class="post-meta-divider">|</span>
 		  
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -233,15 +231,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-05-08 19:40:28" itemprop="dateCreated datePublished" datetime="2020-05-08T19:40:28+08:00">2020-05-08</time>
+              <time title="创建时间：2020-07-27 22:44:20" itemprop="dateCreated datePublished" datetime="2020-07-27T22:44:20+08:00">2020-07-27</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-27 23:35:42" itemprop="dateModified" datetime="2020-07-27T23:35:42+08:00">2020-07-27</time>
+                <time title="修改时间：2020-07-30 23:51:16" itemprop="dateModified" datetime="2020-07-30T23:51:16+08:00">2020-07-30</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
 
           
 			<span>&emsp;</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span>
@@ -251,13 +258,13 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>63</span>
+              <span>2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -269,8 +276,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>这位朋友你好呀，我是阿健！欢迎来到我的博客 <a href="http://www.ajiany.com/" target="_blank" rel="noopener">ajian</a>! 博客记录了我的一些学习笔记和资源分享。 希望我的一些浅薄理解可以帮助到您。 </p>
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>学校在拍年度纪念照时，一般要求学生按照 非递减 的高度顺序排列。<br>请你返回能让所有学生以 非递减 高度排列的最小必要移动人数。<br>注意，当一组学生被选中时，他们之间可以以任何可能的方式重新排序，而未被选中的学生应该保持不动。</p>
+<a id="more"></a>
+<p>输入：heights = [1,1,4,2,1,3]<br>输出：3<br>解释：<br>当前数组：[1,1,4,2,1,3]<br>目标数组：[1,1,1,2,3,4]<br>在下标 2 处（从 0 开始计数）出现 4 vs 1 ，所以我们必须移动这名学生。<br>在下标 4 处（从 0 开始计数）出现 1 vs 3 ，所以我们必须移动这名学生。<br>在下标 5 处（从 0 开始计数）出现 3 vs 4 ，所以我们必须移动这名学生</p>
+<p>输入：heights = [5,1,2,3,4]<br>输出：5</p>
+<p>输入：heights = [1,2,3,4,5]<br>输出：0</p>
+<p>思路:</p>
+<ol>
+<li>先将heights数组中的每一个数值i作为array数组的索引，出现几次则令array[i]++；</li>
+<li>遍历array数组，当数组元素大于0，表示该元素的索引即为heights的数值，数组元素的数值即为在heights数组中出现的次数；</li>
+<li>接着判断heights数组当前位置的数值是否与array[i]相等，不相等则count++；</li>
+<li>最后得到的count即为题目要求的最小必要移动人数</li>
+</ol>
+<h3 id="Java代码实现"><a href="#Java代码实现" class="headerlink" title="Java代码实现"></a>Java代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">*执行用时：1 ms, 在所有 Java 提交中击败了82.45%的用户</span></span><br><span class="line"><span class="comment">*内存消耗：37.5 MB, 在所有 Java 提交中击败了10.00%的用户</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">heightChecker</span><span class="params">(<span class="keyword">int</span>[] heights)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] array=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">101</span>];</span><br><span class="line">        <span class="comment">//统计heights数组每个元素出现的次数</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> height:heights)&#123;</span><br><span class="line">            array[height]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> count=<span class="number">0</span>;</span><br><span class="line">        <span class="comment">//因为i表示heights中的数值，heights数组中的数值最小为1，故从1开始计数</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,j=<span class="number">0</span>;i&lt;array.length;i++)&#123;</span><br><span class="line">            <span class="keyword">while</span>(array[i]-- &gt; <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="comment">//array[i]大于零表示当前索引i为heights数组中存在的值，array[i]表示这个值在heights数组存在的个数</span></span><br><span class="line">                <span class="comment">//接着判断heights数组与当前数组的索引是否相等，不相等则count增加1</span></span><br><span class="line">                <span class="keyword">if</span>(heights[j++]!=i) count++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] heights=&#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>&#125;;</span><br><span class="line">        Solution s=<span class="keyword">new</span> Solution();</span><br><span class="line">        System.out.println(<span class="string">"result is: "</span>+s.heightChecker(heights));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="Python代码实现-方法一"><a href="#Python代码实现-方法一" class="headerlink" title="Python代码实现,方法一"></a>Python代码实现,方法一</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">执行用时：20 ms, 在所有 Python 提交中击败了78.96%的用户</span></span><br><span class="line"><span class="string">内存消耗：12.9 MB, 在所有 Python 提交中击败了33.33%的用户</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">heightChecker</span><span class="params">(self, heights)</span>:</span></span><br><span class="line">        n=<span class="number">0</span></span><br><span class="line">        temp=heights[:]</span><br><span class="line">        heights.sort(reverse=<span class="literal">False</span>)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(temp)):</span><br><span class="line">            <span class="keyword">if</span> temp[i]!=heights[i]:</span><br><span class="line">                n+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> n</span><br><span class="line">heights = [<span class="number">1</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>]            </span><br><span class="line">x=Solution()</span><br><span class="line">n=x.heightChecker(heights)</span><br><span class="line">print(n)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Python代码实现-方法二"><a href="#Python代码实现-方法二" class="headerlink" title="Python代码实现,方法二"></a>Python代码实现,方法二</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">执行用时：8 ms</span></span><br><span class="line"><span class="string">内存消耗：12.6 MB</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">heightChecker</span><span class="params">(self,heights)</span>:</span></span><br><span class="line">        <span class="comment">#定义一个长度为101的列表，且每个元素为0</span></span><br><span class="line">        array=[<span class="number">0</span>]*<span class="number">101</span></span><br><span class="line">        <span class="comment">#用列表给heights列表的每一个元素计数</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> heights:</span><br><span class="line">            array[i]+=<span class="number">1</span></span><br><span class="line">        count=j=<span class="number">0</span></span><br><span class="line">        <span class="comment">#找到array列表中给heights列表计数的位置，判断其是否和i相等</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(array)):</span><br><span class="line">            <span class="keyword">while</span> array[i]&gt;<span class="number">0</span>:</span><br><span class="line">                <span class="keyword">if</span> heights[j]!=i:</span><br><span class="line">                    count+=<span class="number">1</span></span><br><span class="line">                j+=<span class="number">1</span></span><br><span class="line">                array[i]-=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> count</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">heights = [<span class="number">5</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]            </span><br><span class="line">x=Solution()</span><br><span class="line">n=x.heightChecker(heights)</span><br><span class="line">print(n)</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -285,7 +307,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2020/05/08/hello-world/" title="欢迎来到我的博客">http://yoursite.com/2020/05/08/hello-world/</a>
+    <a href="http://yoursite.com/2020/07/27/leetCode-no-1051/" title="leetCode-no-1051">http://yoursite.com/2020/07/27/leetCode-no-1051/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -324,16 +346,25 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <!-- <a href="/tags/leetcode/" rel="tag"># leetcode</a> -->
+			  <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
+              <!-- <a href="/tags/%E6%95%B0%E7%BB%84/" rel="tag"># 数组</a> -->
+			  <a href="/tags/%E6%95%B0%E7%BB%84/" rel="tag"><i class="fa fa-tag"></i> 数组</a>
+          </div>
 
         
 
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/07/27/leetCode-no-1051/" rel="next" title="leetCode-no-1051">
-      leetCode-no-1051 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/05/08/hello-world/" rel="prev" title="欢迎来到我的博客">
+      <i class="fa fa-chevron-left"></i> 欢迎来到我的博客
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/07/27/leetCode-no-53/" rel="next" title="leetCode-no-53">
+      leetCode-no-53 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -393,6 +424,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java代码实现"><span class="nav-number">2.</span> <span class="nav-text">Java代码实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python代码实现-方法一"><span class="nav-number">3.</span> <span class="nav-text">Python代码实现,方法一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python代码实现-方法二"><span class="nav-number">4.</span> <span class="nav-text">Python代码实现,方法二</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
