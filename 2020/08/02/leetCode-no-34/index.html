@@ -22,21 +22,21 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="题目描述给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。你可以假设数组中无重复元素。 输入: [1,3,5,6], 5输出: 2">
+  <meta name="description" content="题目描述给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。你的算法时间复杂度必须是 O(log n) 级别。如果数组中不存在目标值，返回 [-1, -1]。输入: nums &#x3D; [5,7,7,8,8,10], target &#x3D; 8输出: [3,4]">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetCode-no-35">
-<meta property="og:url" content="http://yoursite.com/2020/08/01/leetCode-no-35/index.html">
+<meta property="og:title" content="leetCode-no-34">
+<meta property="og:url" content="http://yoursite.com/2020/08/02/leetCode-no-34/index.html">
 <meta property="og:site_name" content="我是ajian">
-<meta property="og:description" content="题目描述给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。你可以假设数组中无重复元素。 输入: [1,3,5,6], 5输出: 2">
+<meta property="og:description" content="题目描述给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。你的算法时间复杂度必须是 O(log n) 级别。如果数组中不存在目标值，返回 [-1, -1]。输入: nums &#x3D; [5,7,7,8,8,10], target &#x3D; 8输出: [3,4]">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-01T15:16:04.000Z">
-<meta property="article:modified_time" content="2020-08-01T15:50:01.090Z">
+<meta property="article:published_time" content="2020-08-02T04:44:08.000Z">
+<meta property="article:modified_time" content="2020-08-02T04:47:55.418Z">
 <meta property="article:author" content="ajian">
 <meta property="article:tag" content="leetcode">
 <meta property="article:tag" content="二分法">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/08/01/leetCode-no-35/">
+<link rel="canonical" href="http://yoursite.com/2020/08/02/leetCode-no-34/">
 
 
 <script id="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>leetCode-no-35 | 我是ajian</title>
+  <title>leetCode-no-34 | 我是ajian</title>
   
 
 
@@ -206,7 +206,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/01/leetCode-no-35/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/02/leetCode-no-34/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -219,7 +219,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          leetCode-no-35
+          leetCode-no-34
         </h1>
 
         <div class="post-meta">
@@ -232,7 +232,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-08-01 23:16:04 / 修改时间：23:50:01" itemprop="dateCreated datePublished" datetime="2020-08-01T23:16:04+08:00">2020-08-01</time>
+              <time title="创建时间：2020-08-02 12:44:08 / 修改时间：12:47:55" itemprop="dateCreated datePublished" datetime="2020-08-02T12:44:08+08:00">2020-08-02</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -252,13 +252,13 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>1.2k</span>
+              <span>2.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -270,18 +270,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。<br>你可以假设数组中无重复元素。</p>
-<p>输入: [1,3,5,6], 5<br>输出: 2</p>
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。<br>你的算法时间复杂度必须是 O(log n) 级别。<br>如果数组中不存在目标值，返回 [-1, -1]。<br>输入: nums = [5,7,7,8,8,10], target = 8<br>输出: [3,4]</p>
 <a id="more"></a>
 <p>思路：</p>
 <ol>
-<li>先判断数组是否为空；</li>
-<li>判断数组特殊情况，target值比数组的所有值都大，则返回数组的长度；</li>
-<li>若数组中有该值则返回该值在数组的索引否则返回在数组中可以插入位置的索引下标，实际上即求返回一个大于等于target值的下标</li>
+<li>查询得到target==nums[middle]暂时不返回，不断向左边界靠近，直到left&gt;right,退出循环得到第一个leftIndex;</li>
+<li>判断leftIndex的有效性，若leftIndex==nums.length或者target!=nums[leftIndex]则返回[-1,-1];3.<br>继续得到target的结束位置leftNextIndex,因为开始位置已经得到，则不必再次向左边界靠近，当循环结束，返回的值减1即结束位置的下标值。</li>
 </ol>
-<h3 id="Java代码实现"><a href="#Java代码实现" class="headerlink" title="Java代码实现"></a>Java代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">执行用时：0 ms, 在所有 Java 提交中击败了100.00%的用户</span></span><br><span class="line"><span class="comment">内存消耗：39.4 MB, 在所有 Java 提交中击败了68.25%的用户</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//暴力解</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchInsert2</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> target)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums[i]&gt;=target) <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> nums.length;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//二分法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> left=<span class="number">0</span>,right=nums.length-<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> middle;</span><br><span class="line">    <span class="comment">//数组为零的情况</span></span><br><span class="line">    <span class="keyword">if</span>(nums.length==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//目标值为数组中最大的情况</span></span><br><span class="line">    <span class="keyword">if</span>(nums[nums.length-<span class="number">1</span>]&lt;target) <span class="keyword">return</span> nums.length;</span><br><span class="line">    <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">        middle=(right-left)/<span class="number">2</span>+left;</span><br><span class="line">        <span class="keyword">if</span>(target&gt;nums[middle])&#123;</span><br><span class="line">            left=middle+<span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            right=middle;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">     <span class="keyword">return</span> left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Java代码实现"><a href="#Java代码实现" class="headerlink" title="Java代码实现"></a>Java代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">执行用时：0 ms, 在所有 Java 提交中击败了100.00%的用户</span></span><br><span class="line"><span class="comment">内存消耗：42.9 MB, 在所有 Java 提交中击败了74.17%的用户</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">leetcode_no_34</span> </span>&#123;</span><br><span class="line">    <span class="comment">//获取指定target的左边界下标</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getIndex</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> target,<span class="keyword">boolean</span> le)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left=<span class="number">0</span>,right=nums.length-<span class="number">1</span>,middle=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(left&lt;=right)&#123;</span><br><span class="line">            middle=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(target&lt;nums[middle]||le&amp;&amp;target==nums[middle]) right=middle-<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> left=middle+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] searchRange(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span> leftIndex=getIndex(nums, target, <span class="keyword">true</span>);</span><br><span class="line">        <span class="keyword">if</span>(leftIndex==nums.length||target!=nums[leftIndex])&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//此时leftNextIndex已经为数组长度，超出索引的值，故减1</span></span><br><span class="line">        <span class="keyword">int</span> leftNextIndex=getIndex(nums, target, <span class="keyword">false</span>)-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;leftIndex,leftNextIndex&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//int[] nums=&#123;5,7,7,8,8,10&#125;;</span></span><br><span class="line">        <span class="keyword">int</span>[] nums=&#123;<span class="number">2</span>,<span class="number">2</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> target=<span class="number">3</span>;</span><br><span class="line">        <span class="keyword">int</span>[] result=searchRange(nums, target);</span><br><span class="line">        System.out.println(<span class="string">"The Java run result is: "</span>+Arrays.toString(result));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">执行用时：16 ms, 在所有 Python 提交中击败了87.97%的用户</span></span><br><span class="line"><span class="string">内存消耗：13 MB, 在所有 Python 提交中击败了41.46%的用户</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">searchInsert</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">        left,right=<span class="number">0</span>,len(nums)<span class="number">-1</span></span><br><span class="line">        middle=<span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> len(nums)==<span class="number">0</span>: <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> nums[len(nums)<span class="number">-1</span>]&lt;target: <span class="keyword">return</span> len(nums)</span><br><span class="line">        <span class="keyword">while</span> left&lt;right:</span><br><span class="line">            middle=left+(right-left)//<span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> target&gt;nums[middle]:</span><br><span class="line">                left=middle+<span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>: right=middle</span><br><span class="line">        <span class="keyword">return</span> left</span><br></pre></td></tr></table></figure>
+<h3 id="Python代码实现"><a href="#Python代码实现" class="headerlink" title="Python代码实现"></a>Python代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">执行用时：20 ms, 在所有 Python 提交中击败了77.30%的用户</span></span><br><span class="line"><span class="string">内存消耗：13.1 MB, 在所有 Python 提交中击败了80.23%的用户</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">searchRange</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">        leftIndex=self.getIndex(nums,target,<span class="literal">True</span>)</span><br><span class="line">        <span class="keyword">if</span> leftIndex==len(nums) <span class="keyword">or</span> target!=nums[leftIndex]: <span class="keyword">return</span> [<span class="number">-1</span>,<span class="number">-1</span>]</span><br><span class="line">        leftNextIndex=self.getIndex(nums,target,<span class="literal">False</span>)<span class="number">-1</span></span><br><span class="line">        <span class="keyword">return</span> [leftIndex,leftNextIndex]</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getIndex</span><span class="params">(self,nums,target,sign)</span>:</span></span><br><span class="line">        left,right,middle=<span class="number">0</span>,len(nums)<span class="number">-1</span>,<span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> left&lt;=right:</span><br><span class="line">            middle=left+(right-left)//<span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> target&lt;nums[middle] <span class="keyword">or</span> (sign <span class="keyword">and</span> target==nums[middle]): right=middle<span class="number">-1</span></span><br><span class="line">            <span class="keyword">else</span> : left=middle+<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> left</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    s=Solution()</span><br><span class="line">    nums=[<span class="number">5</span>,<span class="number">7</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">10</span>]</span><br><span class="line">    target=<span class="number">8</span></span><br><span class="line">    result=s.searchRange(nums,target)</span><br><span class="line">    print(<span class="string">"The running result of Python is :&#123;&#125;"</span>.format(result))</span><br></pre></td></tr></table></figure>
+
+
     </div>
 
     
@@ -296,7 +296,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2020/08/01/leetCode-no-35/" title="leetCode-no-35">http://yoursite.com/2020/08/01/leetCode-no-35/</a>
+    <a href="http://yoursite.com/2020/08/02/leetCode-no-34/" title="leetCode-no-34">http://yoursite.com/2020/08/02/leetCode-no-34/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -348,12 +348,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/07/31/leetCode-no-88/" rel="prev" title="leetCode-no-88">
-      <i class="fa fa-chevron-left"></i> leetCode-no-88
+    <a href="/2020/08/01/leetCode-no-35/" rel="prev" title="leetCode-no-35">
+      <i class="fa fa-chevron-left"></i> leetCode-no-35
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/08/02/leetCode-no-34/" rel="next" title="leetCode-no-34">
-      leetCode-no-34 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/08/02/leetCode-no-33/" rel="next" title="leetCode-no-33">
+      leetCode-no-33 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
